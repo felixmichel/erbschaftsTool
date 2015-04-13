@@ -1,0 +1,27 @@
+{
+  "name": "Fotowand",
+  "version": "0.0.0",
+  "homepage": "https://github.com/felixmichel/fotowand",
+  "description": "picture wall with hover effect and modal dialog for more information",
+  "main": "index.html",
+  "keywords": [
+    "portraits",
+    "modal",
+    "dialog"
+  ],
+  "authors": [
+    "Felix Michel"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.4",
+    "jquery": "~2.1.3"
+  }
+}
