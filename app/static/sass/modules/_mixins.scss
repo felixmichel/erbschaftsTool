@@ -1,0 +1,7 @@
+@mixin opacity($opacity: 1){
+  opacity: $opacity;
+}
+
+@mixin bodyFont($fontSizeFaktor: 1){
+  font-size: $fontSizeFaktor * $baseFontSize;
+}

@@ -1,0 +1,147 @@
+.grid {
+  padding: 0px 0px 0px 0px;
+  max-width: 990px;
+  margin: 0 auto 10px;
+  list-style: none;
+  text-align: center;
+  background: #FFFFFF;
+}
+
+.grid li {
+  display: inline-block;
+  width: 240px;
+  margin: 0;
+  text-align: left;
+  position: relative;
+}
+
+.grid figure {
+  margin: 0;
+  position: relative;
+}
+
+.grid figure img {
+  max-width: 100%;
+  display: block;
+  position: relative;
+}
+
+.grid figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  background: $color_figcaption;
+  color: #000;
+}
+
+.grid figcaption h3 {
+  margin: 0 0 5px 0;
+  padding: 0;
+  color: #000;
+
+}
+
+.grid figcaption a {
+  text-align: center;
+  color: #114d97;
+  font-weight: bold;
+}
+
+.grid figcaption a:hover {
+  text-align: center;
+  color: #FFF;
+  font-weight: bold;
+}
+
+br{
+  line-height: 180%;
+
+}
+
+/* Individual Caption Styles */
+
+/* Caption Style 3 */
+.cs-style-3 figure {
+  overflow: hidden;
+}
+
+.cs-style-3 figcaption {
+  height: 65px;
+  width: 100%;
+  top: auto;
+  bottom: 0;
+  opacity: 0.9;
+  -webkit-transform: translateY(38%);
+  -moz-transform: translateY(38%);
+  -ms-transform: translateY(38%);
+  transform: translateY(38%);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
+  -moz-transition: -moz-transform 0.4s, opacity 0.1s 0.3s;
+  transition: transform 0.4s, opacity 0.1s 0.3s;
+}
+
+.no-touch .cs-style-3 figure:hover figcaption,
+.cs-style-3 figure.cs-hover figcaption {
+  opacity: 0.9;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  transform: translateY(0px);
+  -webkit-transition: -webkit-transform 0.4s, opacity 0.1s;
+  -moz-transition: -moz-transform 0.4s, opacity 0.1s;
+  transition: transform 0.4s, opacity 0.1s;
+}
+
+.cs-style-3 figure figcaption span {
+
+  font-size: 16px;
+}
+
+/*
+
+.cs-style-3 figcaption {
+  height: 55px;
+  width: 100%;
+  top: auto;
+  bottom: 0;
+  opacity: 0.8;
+
+}
+
+.cs-style-3 figure figcaption span {
+
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+}
+
+.cs-style-3 figure img {
+  opacity: 0.5;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+}
+
+.cs-style-3 figure img:hover {
+  opacity: 1;
+}
+
+.cs-style-3 figure:hover figcaption span {
+  opacity: 1;
+}
+
+*/
+
+@media screen and (max-width: 628px) {
+  .grid {
+    padding: 10px 10px 10px 10px;
+  }
+  .grid li {
+    width: 300px;
+  }
+}

@@ -4,13 +4,15 @@ module.exports = function(grunt) {
       scss: {
           files: ['app/static/sass/**/*.scss'],
           tasks: ['compass:develop'],
-          options: {
-              livereload: true,
-          }
       },
       js: {
           files: ['app/**/*.js'],
           tasks: ['uglify:develop']
+      },
+      html: {
+          files: ['app/**/*.html'],
+          tasks: ['copy:develop']
+
       }
   });
 

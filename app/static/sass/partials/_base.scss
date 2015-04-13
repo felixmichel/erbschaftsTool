@@ -3,3 +3,23 @@
 The partials directory is where the meat of the CSS is constructed.
 
 */
+
+// @import "compass/css3/flexbox";
+
+@import "modules/all";
+@import "grid";
+
+ *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+body, html { @include bodyFont($fontSizeMedium); padding: 0; margin: 0;}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before, .clearfix:after { content: " "; display: table; }
+.clearfix:after { clear: both; }
+
+body {
+  font-family: $baseFont;
+}
+
+a {
+  color: $color_figcaption;
+}
