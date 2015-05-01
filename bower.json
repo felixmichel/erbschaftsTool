@@ -1,13 +1,13 @@
 {
-  "name": "Fotowand",
-  "version": "0.0.0",
-  "homepage": "https://github.com/felixmichel/fotowand",
-  "description": "picture wall with hover effect and modal dialog for more information",
+  "name": "ErbschaftsTool",
+  "version": "0.0.1",
+  "homepage": "https://github.com/felixmichel/erbschaftsTool",
+  "description": "interactive tool using bootstrap carousel featuring a counter and a calculator",
   "main": "index.html",
   "keywords": [
-    "portraits",
-    "modal",
-    "dialog"
+    "carousel",
+    "counter",
+    "calculator"
   ],
   "authors": [
     "Felix Michel"
@@ -16,9 +16,7 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "bower_components"
   ],
   "dependencies": {
     "bootstrap-sass": "~3.3.4",
