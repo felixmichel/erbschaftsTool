@@ -151,12 +151,14 @@ $( document ).ready(function() {
         if (vermoegen <= 2000) {
             $('#erbeEltern').html(0);
             $('#erbeAndere').html(0);
+            $('#erbeInitiative').html(0);
             $('#erbeText').show("slow");
             $('#erbeTextInitiative').show("slow");
         }
 
         else if (vermoegen <= 100000)
         {
+            $('#erbeInitiative').html(0);
             $('#erbeText').hide("slow");
             $('#erbeTextInitiative').show("slow");
             vermoegenEltern = (0.05*vermoegen);
@@ -167,7 +169,7 @@ $( document ).ready(function() {
         }
         else if (vermoegen<= 200000)
         {
-
+            $('#erbeInitiative').html(0);
             $('#erbeText').hide("slow");
             $('#erbeTextInitiative').show("slow");
             vermoegenEltern = (0.06*vermoegen);
@@ -178,7 +180,7 @@ $( document ).ready(function() {
         }
         else if (vermoegen <= 500000)
         {
-
+            $('#erbeInitiative').html(0);
             $('#erbeText').hide("slow");
             $('#erbeTextInitiative').show("slow");
             vermoegenEltern = (0.07*vermoegen);
@@ -189,7 +191,7 @@ $( document ).ready(function() {
         }
         else if (vermoegen <= 1000000)
         {
-
+            $('#erbeInitiative').html(0);
             $('#erbeText').hide("slow");
             $('#erbeTextInitiative').show("slow");
             vermoegenEltern = (0.08*vermoegen);
@@ -201,7 +203,7 @@ $( document ).ready(function() {
 
         else if (vermoegen <= 2000000)
         {
-
+            $('#erbeInitiative').html(0);
             $('#erbeText').hide("slow");
             $('#erbeTextInitiative').show("slow");
             vermoegenEltern = (0.09*vermoegen);
