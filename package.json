@@ -1,7 +1,7 @@
 {
-  "name": "Fotowand",
-  "version": "1.0.0",
-  "description": "Fotowand",
+  "name": "ErbschaftsTool",
+  "version": "0.0.1",
+  "description": "interactive tool with a fortune and legacy counter and a legacy tax calculator",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
