@@ -4,22 +4,93 @@ The partials directory is where the meat of the CSS is constructed.
 
 */
 
-// @import "compass/css3/flexbox";
+h1, h2, h3, h4, p { margin: 0.66em 0 0; font-weight: 200; max-width: 650px; padding-right: 10px;}
 
-@import "modules/all";
-@import "grid";
+h1 { font-size: 1.8em; font-weight: bold; }
+h2 { font-size: 1.6em; }
+h3 { font-size: 1.4em; }
+h4 { font-size: 1.2em; }
+p  { font-size: 1.0em; }
 
- *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
-body, html { @include bodyFont($fontSizeMedium); padding: 0; margin: 0;}
 
-/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
-.clearfix:before, .clearfix:after { content: " "; display: table; }
-.clearfix:after { clear: both; }
+html,body{height:100%;}
+.carousel,.item,.active{height:100%;}
+.carousel-inner{height:100%;}
 
-body {
-  font-family: $baseFont;
+
+#slide1 { background-image: url("../img/Paradeplatz.jpg"); }
+#slide2 { background-image: url("../img/RocheTurm.jpg"); }
+#slide3 { background-image: url("../img/Goldkueste.jpg"); }
+#slide4 { background-image: url("../img/einfamilien.jpg"); }
+#slide5 { background-image: url("../img/Reichtum.jpg"); }
+#slide6 { background-image: url("../img/Zukunft.jpg"); }
+
+.overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url(../img/grad.png); background-size: 100% 100%; background-repeat: no-repeat; }
+
+.legende {
+  color: darkgray;
+  font-weight: 200;
+
 }
 
-a {
-  color: $color_figcaption;
+.textbox {
+
+  background-color: rgba(255,255,255,0.9);
+  height: 50px;
+  width: 350px;
+  padding: 8px 12px;
+  font-size: 150%;
+  line-height: 30px;
+  border: 0;
+  outline: none;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  text-align: left;
+  margin: 5% auto;
+  color: #000000;
+
 }
+
+.button {background-color: rgba(0,129,72,0.4); border:none; padding:8px; outline: none; height: 50px; font-size: 23px;}
+
+.button:hover {background: rgba(0,129,72,0.7);}
+
+#erbeText {
+  display: none;
+}
+
+#erbeTextInitiative {
+  display: none;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+  h1, h2, h3, h4, p { max-width: 450px; }
+}
+
+@media only screen and (max-width: 600px) {
+
+
+
+  #slide1 { background-image: url("../img/mobile/Paradeplatz.jpg"); }
+  #slide2 { background-image: url("../img/mobile/RocheTurm.jpg"); }
+  #slide3 { background-image: url("../img/mobile/Goldkueste.jpg"); }
+  #slide4 { background-image: url("../img/mobile/einfamilien.jpg"); }
+  #slide5 { background-image: url("../img/mobile/Reichtum.jpg"); }
+  #slide6 { background-image: url("../img/mobile/Zukunft.jpg"); }
+  .overlay { background-size: 130% 100%; }
+
+  .textbox {
+    width: 250px;
+  }
+  .logo {
+    width: 100px;
+  }
+
+  .button {background: rgba(0,129,72,0.7);}
+
+
+}
+

@@ -8,11 +8,11 @@ module.exports = function(grunt) {
               beautify: true
           },
           files: {
-              'generated/js/modernizr.custom.js': ['app/js/modernizr.custom.js'],
-              'generated/js/toucheffects.js': ['app/js/toucheffects.js'],
               'generated/js/jquery.js': ['bower_components/jquery/dist/jquery.js'],
               'generated/js/bootstrap.min.js': ['app/js/bootstrap.min.js'],
-              'generated/js/functions.js': ['app/js/functions.js']
+              'generated/js/functions.js': ['app/js/functions.js'],
+              'generated/js/jshashtable-2.1.js': ['app/js/jshashtable-2.1.js'],
+              'generated/js/jquery.numberformatter-1.2.3.min.js': ['app/js/jquery.numberformatter-1.2.3.min.js']
           }
       },
       dist: {
@@ -24,11 +24,11 @@ module.exports = function(grunt) {
               mangle: true
           },
           files: {
-              'dist/js/modernizr.custom.js': ['app/js/modernizr.custom.js'],
-              'dist/js/toucheffects.js': ['app/js/toucheffects.js'],
               'dist/js/jquery.js': ['bower_components/jquery/dist/jquery.js'],
               'dist/js/bootstrap.min.js': ['app/js/bootstrap.min.js'],
-              'dist/js/functions.js': ['app/js/functions.js']
+              'dist/js/functions.js': ['app/js/functions.js'],
+              'dist/js/jshashtable-2.1.js': ['app/js/jshashtable-2.1.js'],
+              'dist/js/jquery.numberformatter-1.2.3.min.js': ['app/js/jquery.numberformatter-1.2.3.min.js']
           }
       }
   });
