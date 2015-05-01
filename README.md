@@ -1,9 +1,9 @@
-# fotowand
-Fotowand-Projekt (picture wall) for TagesWoche, live version is here:  http://www.tageswoche.ch/basler_filmszene/
+# erbschaftsTool
+interactive tool with a fortune and legacy counter and a legacy tax calculator
 
 ### Description ###
 
-* A picture / portrait wall for news articles with a modal bootstrap dialog showing more information about the pictures / people
+* An interactive tool using bootstrap carousel (adapted to vertical mode) with a counter and calculator feature
 * 0.1
 
 ### How do I get set up? ###
