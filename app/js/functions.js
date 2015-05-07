@@ -1,10 +1,10 @@
 // create links for sharebuttons
 function sharebtns() {
-    var sharetext = $('meta[name=description]').attr("content");
-    var shareurl = decodeURI(location.href);
+    var sharetext = "So viel erbt die Schweiz: Alle zwei Sekunden ein GA, jede Minute einen Ferrari...";
+    var shareurl = "http://www.tageswoche.ch/+o1p9h";
     var sharetitle = $('title').text();
 
-    $('a#sharetwitter').attr("href", "https://twitter.com/intent/tweet?text=" + sharetext + "&url=" + shareurl);
+    $('a#sharetwitter').attr("href", "https://twitter.com/intent/tweet?text=" + "So viel erbt die Schweiz: Alle zwei Sekunden ein GA, jede Minute einen Ferrari... " + "http://bit.ly/1F15wJU");
     $('a#sharefb').attr("href", "https://www.facebook.com/dialog/feed?app_id=204329636307540&redirect_uri=" + shareurl + "&link=" + shareurl + "&name=" + sharetitle + "&description=" + sharetext);
     $('a#shareemail').attr("href", "mailto:?subject=Empfehlung: " + sharetitle + "&body=" + sharetext + " || " + shareurl);
 }
@@ -28,11 +28,11 @@ $("#carousel-example-generic").carousel({
 checkitem = function() {
     var $this;
     $this = $("#carousel-example-generic");
-    if ($("#slide1").hasClass("active")) {
+    if ($("#slide4").hasClass("active")) {
         $this.children(".left").hide();
         $this.children(".right").show();
     }
-    else if ($("#slide4").hasClass("active")) {
+    else if ($("#slide3").hasClass("active")) {
         $this.children(".right").hide();
         $this.children(".left").show();
     }
@@ -144,101 +144,299 @@ $( document ).ready(function() {
 
     $('form').submit(function (e) {
         e.preventDefault();
+        var vermoegenKinder = 0;
         var vermoegenEltern = 0;
         var vermoegenAndere = 0;
         var vermoegenInit = 0;
+        var erbeEltern = 0;
+        $('#erbeKinder').html(0);
+        $('#erbeEltern').html(0);
+        $('#erbeAndere').html(0);
+        $('#erbeAndere').html(0);
+        $('#erbeInitiative').html(0);
         var vermoegen = $('#vermoegen').val();
-        if (vermoegen <= 2000) {
-            $('#erbeEltern').html(0);
-            $('#erbeAndere').html(0);
-            $('#erbeInitiative').html(0);
-            $('#erbeText').show("slow");
-            $('#erbeTextInitiative').show("slow");
+
+        //Baselland
+
+
+        if ($('#auswahlKanton').val() === "baselland")
+        {
+            $('#erbeText').hide("slow");
+            $('#erbeText_SZ').hide("slow");
+
+            if (vermoegen <= 10000) {
+                $('#erbeTextInitiative').show("slow");
+                $('#erbeText_BL').show("slow");
+
+            }
+            else if (vermoegen <= 2000000) {
+                $('#erbeText_BL').hide("slow");
+                $('#erbeTextInitiative').show("slow");
+                vermoegenAndere = ((vermoegen - 10000) * 0.3);
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+
+
+            }
+            else {
+                $('#erbeText_BL').hide("slow");
+                $('#erbeTextInitiative').hide("slow");
+
+                vermoegenAndere = ((vermoegen - 10000) * 0.3);
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+
+                vermoegenInit = ((vermoegen - 2000000) * 0.2);
+                $('#erbeInitiative').html(vermoegenInit).formatNumber({format: "#,##0", locale: "ch"});
+            }
+
         }
 
-        else if (vermoegen <= 100000)
-        {
-            $('#erbeInitiative').html(0);
-            $('#erbeText').hide("slow");
-            $('#erbeTextInitiative').show("slow");
-            vermoegenEltern = (0.05*vermoegen);
-            $('#erbeEltern').html(vermoegenEltern).formatNumber({format:"#,##0", locale:"ch"});
+        //Basel-Stadt
 
-            vermoegenAndere = (0.225*vermoegen);
-            $('#erbeAndere').html(vermoegenAndere).formatNumber({format:"#,##0", locale:"ch"});
+        else if ($('#auswahlKanton').val() === "baselstadt") {
+            $('#erbeText_BL').hide("slow");
+
+            if (vermoegen <= 2000) {
+
+                $('#erbeText').show("slow");
+                $('#erbeTextInitiative').show("slow");
+                $('#erbeText_SZ').hide("slow");
+            }
+
+            else if (vermoegen <= 100000) {
+                $('#erbeText').hide("slow");
+                $('#erbeTextInitiative').show("slow");
+                vermoegenEltern = (0.05 * vermoegen);
+                $('#erbeEltern').html(vermoegenEltern).formatNumber({format: "#,##0", locale: "ch"});
+
+                vermoegenAndere = (0.225 * vermoegen);
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else if (vermoegen <= 200000) {
+                $('#erbeText').hide("slow");
+                $('#erbeTextInitiative').show("slow");
+                vermoegenEltern = (0.06 * vermoegen);
+                $('#erbeEltern').html(vermoegenEltern).formatNumber({format: "#,##0", locale: "ch"});
+
+                vermoegenAndere = (0.27 * vermoegen);
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else if (vermoegen <= 500000) {
+                $('#erbeText').hide("slow");
+                $('#erbeTextInitiative').show("slow");
+                vermoegenEltern = (0.07 * vermoegen);
+                $('#erbeEltern').html(vermoegenEltern).formatNumber({format: "#,##0", locale: "ch"});
+
+                vermoegenAndere = (0.315 * vermoegen);
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else if (vermoegen <= 1000000) {
+                $('#erbeText').hide("slow");
+                $('#erbeTextInitiative').show("slow");
+                vermoegenEltern = (0.08 * vermoegen);
+                $('#erbeEltern').html(vermoegenEltern).formatNumber({format: "#,##0", locale: "ch"});
+
+                vermoegenAndere = (0.36 * vermoegen);
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+            }
+
+            else if (vermoegen <= 2000000) {
+                $('#erbeText').hide("slow");
+                $('#erbeTextInitiative').show("slow");
+                vermoegenEltern = (0.09 * vermoegen);
+                $('#erbeEltern').html(vermoegenEltern).formatNumber({format: "#,##0", locale: "ch"});
+
+                vermoegenAndere = (0.405 * vermoegen);
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else if (vermoegen <= 3000000) {
+                $('#erbeText').hide("slow");
+                $('#erbeTextInitiative').hide("slow");
+                vermoegenEltern = (0.1 * vermoegen);
+                $('#erbeEltern').html(vermoegenEltern).formatNumber({format: "#,##0", locale: "ch"});
+
+                vermoegenAndere = (0.45 * vermoegen);
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+
+                vermoegenInit = ((vermoegen - 2000000) * 0.2);
+                $('#erbeInitiative').html(vermoegenInit).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else {
+                $('#erbeText').hide("slow");
+                $('#erbeTextInitiative').hide("slow");
+                vermoegenEltern = (0.11 * vermoegen);
+                $('#erbeEltern').html(vermoegenEltern).formatNumber({format: "#,##0", locale: "ch"});
+
+                vermoegenAndere = (0.495 * vermoegen);
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+
+                vermoegenInit = ((vermoegen - 2000000) * 0.2);
+                $('#erbeInitiative').html(vermoegenInit).formatNumber({format: "#,##0", locale: "ch"});
+            }
         }
-        else if (vermoegen<= 200000)
-        {
-            $('#erbeInitiative').html(0);
-            $('#erbeText').hide("slow");
-            $('#erbeTextInitiative').show("slow");
-            vermoegenEltern = (0.06*vermoegen);
-            $('#erbeEltern').html(vermoegenEltern).formatNumber({format:"#,##0", locale:"ch"});
 
-            vermoegenAndere = (0.27*vermoegen);
-            $('#erbeAndere').html(vermoegenAndere).formatNumber({format:"#,##0", locale:"ch"});
+        //Zuerich
+
+        else if ($('#auswahlKanton').val() === "zuerich") {
+            vermoegenEltern = vermoegen - 200000;
+            $('#erbeText').hide("slow");
+            $('#erbeText_BL').hide("slow");
+            $('#erbeText_SZ').hide("slow");
+
+            if (vermoegen <= 30000) {
+                $('#erbeTextInitiative').show("slow");
+
+                vermoegenAndere = (0.02 * vermoegen)*6;
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else if (vermoegen <= 90000) {
+                $('#erbeTextInitiative').show("slow");
+
+                vermoegenAndere = ((((vermoegen - 30000)*0.03))+600)*6;
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else if (vermoegen <= 180000) {
+                $('#erbeTextInitiative').show("slow");
+
+                vermoegenAndere = ((((vermoegen - 90000)*0.04))+2400)*6;
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else if (vermoegen <= 360000) {
+                $('#erbeTextInitiative').show("slow");
+
+                vermoegenAndere = ((((vermoegen - 180000)*0.05))+6000)*6;
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else if (vermoegen <= 840000) {
+                $('#erbeTextInitiative').show("slow");
+
+                vermoegenAndere = ((((vermoegen - 360000)*0.06))+15000)*6;
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else if (vermoegen <= 1500000) {
+                $('#erbeTextInitiative').show("slow");
+
+                vermoegenAndere = ((((vermoegen - 840000)*0.07))+43800)*6;
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else if (vermoegen <= 2000000)  {
+                $('#erbeTextInitiative').show("slow");
+
+                vermoegenAndere = ((((vermoegen - 1500000)*0.06))+90000)*6;
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+            }
+
+            else  {
+                $('#erbeTextInitiative').hide("slow");
+
+                vermoegenAndere = ((((vermoegen - 1500000)*0.06))+90000)*6;
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+
+                vermoegenInit = ((vermoegen - 2000000) * 0.2);
+                $('#erbeInitiative').html(vermoegenInit).formatNumber({format: "#,##0", locale: "ch"});
+            }
+
+            // Erbe an Eltern, Freibetrag von 200'000
+
+            if (vermoegenEltern < 0) {
+
+                $('#erbeEltern').html(0);
+            }
+
+            else if (vermoegenEltern <= 30000) {
+
+                erbeEltern = (0.02 * vermoegenEltern);
+                $('#erbeEltern').html(erbeEltern).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else if (vermoegenEltern <= 90000) {
+
+                erbeEltern = ((((vermoegenEltern - 30000)*0.03))+600);
+                $('#erbeEltern').html(erbeEltern).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else if (vermoegenEltern <= 180000) {
+
+                erbeEltern = ((((vermoegenEltern - 90000)*0.04))+2400);
+                $('#erbeEltern').html(erbeEltern).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else if (vermoegenEltern <= 360000) {
+
+                erbeEltern = ((((vermoegenEltern - 180000)*0.05))+6000);
+                $('#erbeEltern').html(erbeEltern).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else if (vermoegenEltern <= 840000) {
+                erbeEltern = ((((vermoegenEltern - 360000)*0.06))+15000);
+                $('#erbeEltern').html(erbeEltern).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else if (vermoegenEltern <= 1500000) {
+                erbeEltern = ((((vermoegenEltern - 840000)*0.07))+43800);
+                $('#erbeEltern').html(erbeEltern).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else {
+                erbeEltern = ((((vermoegenEltern - 1500000)*0.06))+90000);
+                $('#erbeEltern').html(erbeEltern).formatNumber({format: "#,##0", locale: "ch"});
+
+            }
+
         }
-        else if (vermoegen <= 500000)
-        {
-            $('#erbeInitiative').html(0);
+        else if ($('#auswahlKanton').val() === "neuenburg") {
             $('#erbeText').hide("slow");
-            $('#erbeTextInitiative').show("slow");
-            vermoegenEltern = (0.07*vermoegen);
-            $('#erbeEltern').html(vermoegenEltern).formatNumber({format:"#,##0", locale:"ch"});
+            $('#erbeText_SZ').hide("slow");
 
-            vermoegenAndere = (0.315*vermoegen);
-            $('#erbeAndere').html(vermoegenAndere).formatNumber({format:"#,##0", locale:"ch"});
+            if (vermoegen <= 10000) {
+                $('#erbeTextInitiative').show("slow");
+
+                $('#erbeText_BL').show("slow");
+            }
+
+            else if (vermoegen <= 50000) {
+                $('#erbeTextInitiative').show("slow");
+
+                vermoegenAndere = (vermoegen - 10000)*0.45;
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+            }
+
+            else if (vermoegen <= 2000000) {
+                $('#erbeTextInitiative').show("slow");
+
+                vermoegenKinder = (vermoegen - 50000) * 0.03;
+                $('#erbeKinder').html(vermoegenKinder).formatNumber({format: "#,##0", locale: "ch"});
+
+                $('#erbeEltern').html(vermoegenKinder).formatNumber({format: "#,##0", locale: "ch"});
+
+                vermoegenAndere = (vermoegen - 10000) * 0.45;
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+            }
+            else {
+                $('#erbeTextInitiative').hide("slow");
+
+                vermoegenKinder = (vermoegen - 50000) * 0.03;
+                $('#erbeKinder').html(vermoegenKinder).formatNumber({format: "#,##0", locale: "ch"});
+
+                $('#erbeEltern').html(vermoegenKinder).formatNumber({format: "#,##0", locale: "ch"});
+
+                vermoegenAndere = (vermoegen - 10000) * 0.45;
+                $('#erbeAndere').html(vermoegenAndere).formatNumber({format: "#,##0", locale: "ch"});
+
+                vermoegenInit = ((vermoegen - 2000000) * 0.2);
+                $('#erbeInitiative').html(vermoegenInit).formatNumber({format: "#,##0", locale: "ch"});
+
+            }
+
         }
-        else if (vermoegen <= 1000000)
-        {
-            $('#erbeInitiative').html(0);
-            $('#erbeText').hide("slow");
-            $('#erbeTextInitiative').show("slow");
-            vermoegenEltern = (0.08*vermoegen);
-            $('#erbeEltern').html(vermoegenEltern).formatNumber({format:"#,##0", locale:"ch"});
+        //Schwyz
 
-            vermoegenAndere = (0.36*vermoegen);
-            $('#erbeAndere').html(vermoegenAndere).formatNumber({format:"#,##0", locale:"ch"});
-        }
+        else if ($('#auswahlKanton').val() === "schwyz") {
 
-        else if (vermoegen <= 2000000)
-        {
-            $('#erbeInitiative').html(0);
-            $('#erbeText').hide("slow");
-            $('#erbeTextInitiative').show("slow");
-            vermoegenEltern = (0.09*vermoegen);
-            $('#erbeEltern').html(vermoegenEltern).formatNumber({format:"#,##0", locale:"ch"});
+           if  (vermoegen <= 2000000) {
+               $('#erbeText_SZ').show("slow");
+               $('#erbeTextInitiative').show("slow");
+           }
+            else {
+               $('#erbeText_SZ').show("slow");
+               $('#erbeTextInitiative').hide("slow");
+               vermoegenInit = ((vermoegen - 2000000) * 0.2);
+               $('#erbeInitiative').html(vermoegenInit).formatNumber({format: "#,##0", locale: "ch"});
 
-            vermoegenAndere = (0.405*vermoegen);
-            $('#erbeAndere').html(vermoegenAndere).formatNumber({format:"#,##0", locale:"ch"});
-        }
-        else if (vermoegen <= 3000000)
-        {
-
-            $('#erbeText').hide("slow");
-            $('#erbeTextInitiative').hide("slow");
-            vermoegenEltern = (0.1*vermoegen);
-            $('#erbeEltern').html(vermoegenEltern).formatNumber({format:"#,##0", locale:"ch"});
-
-            vermoegenAndere = (0.45*vermoegen);
-            $('#erbeAndere').html(vermoegenAndere).formatNumber({format:"#,##0", locale:"ch"});
-
-            vermoegenInit = ((vermoegen - 2000000)*0.2);
-            $('#erbeInitiative').html(vermoegenInit).formatNumber({format:"#,##0", locale:"ch"});
-        }
-        else
-        {
-
-            $('#erbeText').hide("slow");
-            $('#erbeTextInitiative').hide("slow");
-            vermoegenEltern = (0.11*vermoegen);
-            $('#erbeEltern').html(vermoegenEltern).formatNumber({format:"#,##0", locale:"ch"});
-
-            vermoegenAndere = (0.495*vermoegen);
-            $('#erbeAndere').html(vermoegenAndere).formatNumber({format:"#,##0", locale:"ch"});
-
-            vermoegenInit = ((vermoegen - 2000000)*0.2);
-            $('#erbeInitiative').html(vermoegenInit).formatNumber({format:"#,##0", locale:"ch"});
+           }
         }
 
 

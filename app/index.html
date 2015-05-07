@@ -2,9 +2,9 @@
 <html lang="de" class="no-js">
 <head>
 
-    <title>Erbschaftssteuer | TagesWoche</title>
+    <title>Interaktives Erbschaftstool | TagesWoche</title>
     <meta charset="UTF-8" />
-    <meta name="description" content="Erbschaftssteuer" />
+    <meta name="description" content="So viel erbt die Schweiz" />
     <meta name="author" content="Felix Michel" />
     <meta name="google-site-verification" content="" />
     <meta name="Copyright" content="" />
@@ -13,6 +13,9 @@
     <meta http-Equiv="Cache-Control" Content="no-cache">
     <meta http-Equiv="Pragma" Content="no-cache">
     <meta http-Equiv="Expires" Content="0">
+    <meta property="og:title" content="So viel erbt die Schweiz" />
+    <meta property="og:url" content="http://labs.tageswoche.ch/region/interaktives/erbschaftstool" />
+    <meta property="og:image" content="http://labs.tageswoche.ch/region/interaktives/erbschaftstool/img/einfamilien.jpg" />
     <link rel="shortcut icon" href="//www.tageswoche.ch/themes/publication_1/theme_1/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="114x114" href="/themes/publication_1/theme_1/touch-icons/h/apple-touch-icon.png">
     <link rel="apple-touch-icon" href="/themes/publication_1/theme_1/touch-icons/l/apple-touch-icon.png">
@@ -33,10 +36,39 @@
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    <div id="slide1" class="item active">
+                    <div id="slide4" class="item active">
+                        <div class="overlay"></div>
+                        <div class="carousel-caption">
+                            <form method="POST">
+                                <h2>So viel müssen Sie abgeben, wenn Sie in
+                                    <select id="auswahlKanton" class="auswahlbox">
+                                    <option value="baselstadt" selected>Basel-Stadt</option>
+                                    <option value="baselland">Baselland</option>
+                                    <option value="zuerich">Zürich</option>
+                                    <option value="neuenburg">Neuenburg</option>
+                                    <option value="schwyz">Schwyz</option>
+                                </select> erben:</h2>
+                                <input id="vermoegen" class="textbox" onkeyup="val()" placeholder="Ihr Erbe?" type="number" required><input id="submit" class="button" type="submit" value="Berechnen">
+                                <h2>Mit der heutigen Erbschaftssteuer</h2>
+                                <h3 id="erbeText">Erbschaften unter 2'000 Franken sind steuerfrei.</h3>
+                                <h3 id="erbeText_BL">Erbschaften unter 10'000 Franken sind steuerfrei.</h3>
+                                <h3 id="erbeText_SZ">Im Kanton Schwyz sind Erbschaften steuerfrei.</h3>
+                                <h1><span id="erbeKinder">0</span> <span class="legende">Franken, wenn das Erbe von Ihren Eltern kommt</span></h1>
+                                <h1><span id="erbeEltern">0</span> <span class="legende">Franken, wenn es von der Tochter/dem Sohn kommt</span></h1>
+                                <h1><span id="erbeAndere">0</span> <span class="legende">Franken, wenn es nicht von einem Verwandten kommt</span></h1>
+                                <br />
+                                <h2>Bei Annahme der Initiative</h2>
+                                <h3 id="erbeTextInitiative">Erbschaften unter 2 Millionen Franken sind steuerfrei.</h3>
+                                <h1><span id="erbeInitiative">0</span> <span class="legende">Franken, egal von wem das Erbe kommt</span></h1>
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="slide1" class="item">
                         <div class="overlay"></div>
                          <div class="carousel-caption">
-                            <h2>Seit Sie auf dieser Seite sind, haben alle Personen in der Schweiz zusammen...</h2><br />
+                            <h2>Seit Sie auf dieser Seite sind, haben alle Personen in der Schweiz zusammen&nbsp;...</h2><br />
                             <h1><span id="nationalEinkommen"></span> <span class="legende">Franken erwirtschaftet</span></h1>
                             <h3>- genug um <span id="miniCooper"></span> Mini Cooper zu kaufen</h3><br />
                             <h1><span id="Arbeit"></span> <span class="legende">Franken durch Arbeit verdient</span></h1>
@@ -48,54 +80,31 @@
                     <div id="slide2" class="item">
                         <div class="overlay"></div>
                         <div class="carousel-caption">
-                            <h2>Seit Sie diese Seite geladen haben, hat der Kanton Basel-Stadt...</h2><br />
+                            <h2>Seit Sie diese Seite geladen haben, hat der Kanton Basel-Stadt&nbsp;...</h2><br />
                             <h1><span id="einnahmenBS"></span> <span class="legende">Franken durch Steuern eingenommen</span></h1>
                             <h3>- genug um <span id="regal"></span> IKEA Billy-Regale zu kaufen</h3><br />
 
                             <h1><span id="erbsteuerBS"></span> <span class="legende">Franken durch Erbschaftssteuern eingenommen</span></h1>
                             <h3>- genug um <span id="espresso"></span> <span id="espressoText"></span> zu bezahlen</h3><br />
 
-                            <h3>Mit einer nationalen Erbschaftssteuer würde der Kanton...</h3>
-                            <h1><span id="erbsteuerBS_neu"></span> <span class="legende">Franken einnehmen</span></h1>
+                            <h3>Mit einer nationalen Erbschaftssteuer hätte der Kanton&nbsp;...</h3>
+                            <h1><span id="erbsteuerBS_neu"></span> <span class="legende">Franken eingenommen</span></h1>
                             <h3>- genug um <span id="espresso_neu"></span> <span id="espressoText_neu"></span> zu bezahlen</h3>
-
-
                         </div>
                     </div>
                     <div id="slide3" class="item">
                         <div class="overlay"></div>
                         <div class="carousel-caption">
-                            <h2>Seit Sie diese Seite geladen haben, sind...</h2><br />
+                            <h2>Seit Sie diese Seite geladen haben, sind&nbsp;...</h2><br />
                             <h1><span id="AHV_alt"></span> <span class="legende">Franken in die AHV geflossen</span></h1>
                             <h3>- genug um <span id="iphone_alt"></span> iPhones zu kaufen</h3>
                             <br />
-                            <h3>Mit einer nationalen Erbschaftssteuer wären...</h3>
+                            <h3>Mit einer nationalen Erbschaftssteuer wären&nbsp;...</h3>
                             <h1><span id="AHV_neu"></span> <span class="legende">Franken in die AHV geflossen</span></h1>
                             <h3>- genug um <span id="iphone_neu"></span> iPhones zu kaufen</h3>
 
                         </div>
                     </div>
-                    <div id="slide4" class="item">
-                        <div class="overlay"></div>
-                        <div class="carousel-caption">
-                            <h2>So viel müssen Sie abgeben, wenn Sie in Basel-Stadt erben...</h2>
-                            <form method="POST">
-                            <input id="vermoegen" class="textbox" onkeyup="val()" placeholder="Ihr Erbe?" type="number" required><input id="submit" class="button" type="submit" value="Berechnen">
-                                <h2>Mit der heutigen Erbschaftssteuer</h2>
-                                <h3 id="erbeText">Erbschaften unter 2'000 Franken sind steuerfrei.</h3>
-                                <h1><span id="erbeKinder">0</span> <span class="legende">Franken, wenn das Erbe von Ihren Eltern kommt</span></h1>
-                                <h1><span id="erbeEltern">0</span> <span class="legende">Franken, wenn es von der Tochter/dem Sohn kommt</span></h1>
-                                <h1><span id="erbeAndere">0</span> <span class="legende">Franken, wenn es nicht von einem Verwandten kommt</span></h1>
-                                <br />
-                                <h2>Bei Annahme der Initiative</h2>
-                                <h3 id="erbeTextInitiative">Erbschaften unter 2 Millionen Franken sind steuerfrei.</h3>
-                                <h1><span id="erbeInitiative">0</span> <span class="legende">Franken, egal von wem das Erbe kommt</span></h1>
-
-                            </form>
-
-                        </div>
-                    </div>
-
                 </div>
 
 
@@ -118,12 +127,12 @@
             <!-- Sources -->
 
             <div style="position: absolute; top: 2%; left: 2%; color: #ffffff; font-size: 25px; font-family: sans-serif; width: 40%;">
-                <i class="glyphicon glyphicon-info-sign" data-toggle="popover" data-html="true" data-placement="bottom" title="Quellen"
-                   data-content="<a href='http://www.bfs.admin.ch/bfs/portal/de/index/themen/00/09/blank/ind42.indicator.420027.420000.html'>Bruttoinlandprodukt (2013)</a>,
+                <i class="glyphicon glyphicon-info-sign" data-toggle="popover" data-html="true" data-placement="bottom" title="Impressum"
+                   data-content="Quellen: <a href='http://www.bfs.admin.ch/bfs/portal/de/index/themen/00/09/blank/ind42.indicator.420027.420000.html'>Bruttoinlandprodukt (2013)</a>,
 <a href='http://www.bfs.admin.ch/bfs/portal/de/index/themen/00/09/blank/ind42.indicator.420027.420000.html'>Arbeitnehmerentgeld (2013)</a>,
 <a href='http://www.srf.ch/news/schweiz/abstimmungen/neue-zahlen-schweizer-vererben-weit-mehr-als-angenommen'>Neueste Schätzungen der vererbten Vermögen</a>,
 <a href='http://www.regierungsrat.bs.ch/geschaefte/berichte.html#page_section3_section5'>Jahresberichte Kanton Basel-Stadt (2006-2013)</a>,
-<a href='http://www.bfs.admin.ch/bfs/portal/de/index/news/publikationen.Document.179221.pdf'>AHV-Statistik</a>"></i>
+<a href='http://www.bfs.admin.ch/bfs/portal/de/index/news/publikationen.Document.179221.pdf'>AHV-Statistik</a><br />Text: Jeremias Schulthess, Grafik: Felix Michel, Bild: Nils Fisch"></i>
             </div>
 
             <!-- Share buttons -->
