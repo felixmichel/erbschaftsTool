@@ -3,5 +3,5 @@ node_modules/
 dist/
 generated/
 .DS_Store
-grunt/.DS_Store
+bower_components/
 .sass-cache/

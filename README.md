@@ -8,7 +8,8 @@ interactive tool with a fortune and legacy counter and a legacy tax calculator
 
 ### How do I get set up? ###
 
-* Download everything
+* Download everything or clone repository
+* Run npm init
 * Run bower init
 * Run grunt or grunt dist
 * Then you should have everything in one folder called generated and the uglified version in dist
